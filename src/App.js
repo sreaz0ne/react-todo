@@ -1,5 +1,3 @@
-import { toBeInTheDOM } from '@testing-library/jest-dom/dist/matchers';
-import { render } from '@testing-library/react';
 import React from 'react';
 import './App.css';
 
