@@ -13,6 +13,7 @@ function ToDo(props) {
     <div className="ToDo">
       <input type="checkbox" name="done" checked={props.done} onChange={props.onChange} />
       <input type="text" name="todo" value={props.value} onChange={props.onChange} />
+      <input type="button" name="delete" value="🗑" onClick={props.onClick}/>
     </div>
   );
 }
@@ -25,6 +26,7 @@ function ToDoList(props) {
           value={todo.value} 
           done={todo.done}
           onChange={(e) => props.onChange(e, todo.id)}
+          onClick={(e) => props.onClick(e, todo.id)}
         />
       </li>
     )
@@ -46,6 +48,7 @@ class App extends React.Component {
 
     this.addToDo = this.addToDo.bind(this);
     this.handleToDoChange = this.handleToDoChange.bind(this);
+    this.handleTodoClick = this.handleTodoClick.bind(this);
   }  
 
   addToDo() {
@@ -79,12 +82,30 @@ class App extends React.Component {
     });
   }
 
+  handleTodoClick(e, id) {
+    const inputName = e.target.name;
+    const todos = this.state.todos.slice();
+    const todoIndex = todos.findIndex((todo) => todo.id === id);
+
+    if (inputName === "delete") {
+      todos.splice(todoIndex, 1);
+
+      this.setState({
+        todos: todos
+      });
+    }
+  }
+
   render() {
     const todos = this.state.todos;
     return (
       <div className="App">
         <AddButton value="Ajouter une tâche" onClick={this.addToDo} />
-        <ToDoList todos={todos} onChange={this.handleToDoChange} />
+        <ToDoList 
+          todos={todos} 
+          onChange={this.handleToDoChange} 
+          onClick={this.handleTodoClick}
+        />
       </div>
     );
   }
