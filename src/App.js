@@ -25,7 +25,7 @@ function ToDoList(props) {
   });
 
   return (
-    <ul>
+    <ul className='ToDoList'>
       {todos}
     </ul>
   );

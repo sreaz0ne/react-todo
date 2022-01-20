@@ -1,0 +1,26 @@
+/* ToDo */
+.ToDo > input {
+    border:none;
+    outline: none;
+}
+
+.ToDo > input[type="text"]:focus {
+    background-color: #F5F5F5;
+}
+
+.ToDo > input[type="button"] {
+    background-color: transparent;
+}
+
+
+/* ToDoList */
+.ToDoList > li {
+    list-style-type: none;
+}
+
+
+/* ToDoHeader */
+.ToDoHeader > input {
+    border:none;
+    outline: none;
+}
