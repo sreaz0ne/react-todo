@@ -2,9 +2,11 @@ import React from 'react';
 import './App.css';
 import ToDo from './ToDo';
 
-function AddButton(props) {
+function ToDoHeader(props) {
   return (
-    <input type="button" value={props.value} onClick={props.onClick} />
+    <div className='ToDoHeader'>
+      <input type='button' value='Ajouter une tâche' onClick={props.onClick} />
+    </div>
   );
 }
 
@@ -90,7 +92,7 @@ class App extends React.Component {
     const todos = this.state.todos;
     return (
       <div className="App">
-        <AddButton value="Ajouter une tâche" onClick={this.addToDo} />
+        <ToDoHeader onClick={this.addToDo} />
         <ToDoList 
           todos={todos} 
           onChange={this.handleToDoChange} 
