@@ -27,9 +27,12 @@ function ToDoList(props) {
   });
 
   return (
-    <ul className='ToDoList'>
-      {todos}
-    </ul>
+    <div className="ToDoList">
+      <h4>{props.title}</h4>
+      <ul>
+        {todos}
+      </ul>
+    </div>
   );
 }
 
@@ -102,6 +105,7 @@ class App extends React.Component {
       <div className="App">
         <ToDoHeader onClick={this.addToDo} />
         <ToDoList 
+          title="Mes tâches"
           todos={todos} 
           onChange={this.handleToDoChange} 
           onClick={this.handleTodoClick}

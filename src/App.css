@@ -14,7 +14,7 @@
 
 
 /* ToDoList */
-.ToDoList > li {
+.ToDoList li {
     list-style-type: none;
 }
 
