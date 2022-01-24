@@ -4,8 +4,8 @@ import ToDo from './ToDo';
 
 function ToDoHeader(props) {
   return (
-    <div className='ToDoHeader'>
-      <input type='button' value='Ajouter une tâche' onClick={props.onClick} />
+    <div className="ToDoHeader">
+      <input type="button" value="Ajouter une tâche" onClick={props.onClick} />
     </div>
   );
 }
@@ -15,8 +15,10 @@ function ToDoList(props) {
     return (
       <li key={todo.id}>
         <ToDo 
-          value={todo.value} 
+          title={todo.title} 
           done={todo.done}
+          description={todo.description}
+          dueDate={todo.done}
           onChange={(e) => props.onChange(e, todo.id)}
           onClick={(e) => props.onClick(e, todo.id)}
         />
@@ -49,8 +51,10 @@ class App extends React.Component {
     todos.push(
       {
         id:id, 
-        value:"",
-        done: false
+        title: null,
+        done: false,
+        description: null,
+        dueDate: null
       }
     );
     this.setState({
@@ -65,8 +69,12 @@ class App extends React.Component {
 
     if (inputName === "done") {
       todos[todoIndex].done = !this.state.todos[todoIndex].done;
-    } else if (inputName === "todo") {
-      todos[todoIndex].value = e.target.value
+    } else if (inputName === "title") {
+      todos[todoIndex].title = e.target.value
+    } else if (inputName === "description") {
+      todos[todoIndex].description = e.target.value
+    } else if (inputName === "dueDate") {
+      todos[todoIndex].dueDate = e.target.value
     }
 
     this.setState({

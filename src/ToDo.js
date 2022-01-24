@@ -7,11 +7,13 @@ function ToDo(props) {
             <input type="checkbox" name="done" checked={props.done} onChange={props.onChange} />
             <input 
                 type="text" 
-                name="todo" 
-                value={props.value} 
+                name="title" 
+                value={props.title} 
                 onChange={props.onChange} 
             />
             <input type="button" name="delete" value="🗑" onClick={props.onClick}/>
+            <input type="text" name="description" value={props.description} onChange={props.onChange} />
+            <input type="datetime-local" name="dueDate" />
         </div>
     );
 }
